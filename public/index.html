@@ -311,8 +311,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   <h3>Quick Start</h3>
   <pre><code>pip install activeledger-agent
 
-from activeledger_agent import write_tile, query_ledger
-write_tile({"type": "credit", "amount": 12500.00, "source": "Acme Corp", "category": "revenue"})</code></pre>
+from activeledger_agent import ActiveLedgerAgent
+agent = ActiveLedgerAgent()
+agent.log_investment(asset="ESPP", amount=10, purchase_price=42.50)
+agent.ask("recent investments")</code></pre>
 </section>
 
 <!-- COPY: HONESTY_NOTE -->
