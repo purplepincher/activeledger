@@ -152,7 +152,7 @@ Using the family's honesty-marker convention:
   repo; the page does not apply the per-site accent swap or the provenance
   panel.
 
-### What changed on the landing page in this branch
+### What changed on the landing page
 
 The landing page's quick-start previously showed an API that **does not exist**
 in the package:
@@ -167,6 +167,11 @@ There is no `write_tile` and no `query_ledger` in `activeledger_agent`. The page
 now shows the real `ActiveLedgerAgent` API instead. The surrounding narrative
 ("writes every transaction as a PLATO tile") remains accurate — the real
 `_write` does post a tile to PLATO.
+
+The page's honesty note previously read "*you can install today … the code and
+the tile format are real*," which omits that the published 0.2.0 wheel raises
+`SyntaxError` on import (see ❌ above). The page now states the import failure
+explicitly.
 
 ---
 
