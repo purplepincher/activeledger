@@ -294,20 +294,16 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 <section class="hero">
   <p class="eyebrow">ActiveLedger</p>
-  <!-- COPY: HERO_HEADLINE -->
-  <h1>A ledger that's structured and written down at the same time</h1>
-  <!-- COPY: HERO_SUBHEAD -->
-  <p class="subhead">Most bookkeeping tools make you choose between a rigid spreadsheet and a free-form note. <code>activeledger-agent</code> writes every transaction as a PLATO tile — readable like prose, queryable like a database — so another agent (or you, later) can read the state without a schema migration.</p>
+  <h1><code>activeledger-agent</code> — financial activity written to PLATO as tiles</h1>
+  <p class="subhead"><code>activeledger-agent</code> is a Python package (PyPI) whose <code>ActiveLedgerAgent</code> class logs investments, trades, and generic activity by POSTing each event as a tile to a PLATO room. Tiles are readable as prose and queryable as structured records, so a later agent can recover ledger state without scraping logs or migrating a schema.</p>
 </section>
 
 <section>
-  <!-- COPY: WHAT_THIS_IS -->
   <h2>What This Is</h2>
-  <p><code>activeledger-agent</code> is a real Python package (<a href="https://pypi.org/project/activeledger-agent/">PyPI</a>) that writes transactions as PLATO tiles and queries ledger state.</p>
+  <p><code>activeledger-agent</code> is a real Python package (<a href="https://pypi.org/project/activeledger-agent/">PyPI</a>) that writes transactions as PLATO tiles and queries ledger state. Its single public class is <code>ActiveLedgerAgent</code>, with <code>log_activity</code>, <code>log_investment</code>, <code>log_trade</code>, <code>ask</code>, and two thin wrappers (<code>detect_emergence</code>, <code>check_consensus</code>) over <code>fleet_agent.fleet_math</code>.</p>
 </section>
 
 <section class="demo-card">
-  <!-- COPY: REAL_QUICKSTART (final) -->
   <h3>Quick Start</h3>
   <pre><code>pip install activeledger-agent
 
@@ -318,8 +314,8 @@ agent.ask("recent investments")</code></pre>
 </section>
 
 <!-- COPY: HONESTY_NOTE -->
-<section>
-  <p class="honesty-note"><em>Honesty note: <code>activeledger-agent</code> is a real, published PyPI package you can install today. It is not yet wrapped in a polished product, but the code and the tile format are real.</em></p>
+<section id="honesty">
+  <p class="honesty-note"><em>Honesty note: <code>activeledger-agent</code> is a real, published PyPI package (0.2.1, owner <code>superinstance</code>). A prior release (0.2.0) shipped with a mis-indented <code>__init__.py</code> that raised <code>SyntaxError</code> on import; fixed in 0.2.1, which installs and imports cleanly today. The <code>ActiveLedgerAgent</code> API shown above matches the current wheel. Each <code>log_*</code> call POSTs to a PLATO server expected at <code>http://localhost:8847/room/activeledger-ai</code>, so it does no useful work without that server running.</em></p>
 </section>
 
 </body>

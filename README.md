@@ -103,7 +103,7 @@ reports the `env.ASSETS` binding.
 ## The real `activeledger-agent` API (verified from the published wheel)
 
 `activeledger-agent` (PyPI, published by `superinstance`; project
-`github.com/SuperInstance/activeledger-agent`) is at version `0.2.0`. Its
+`github.com/SuperInstance/activeledger-agent`) is at version `0.2.1`. Its
 summary line reads:
 
 > activeledger domain agent for PLATO fleet
@@ -128,9 +128,6 @@ agent.log_investment(asset="ESPP", amount=10, purchase_price=42.50)
 agent.ask("recent investments")
 ```
 
-> **Heads-up — the published 0.2.0 does not currently import.** See the next
-> section.
-
 ---
 
 ## Honesty / status
@@ -139,20 +136,18 @@ Using the family's honesty-marker convention:
 
 - ✅ **real today** — the static landing page renders; the Worker serves it via
   `env.ASSETS`; the `family/` design-system assets are present and inlined.
+  `activeledger-agent` `0.2.1` installs and imports cleanly — a `0.2.0` release
+  shipped with a malformed `__init__.py` (a module-level `def __init__` plus
+  mis-indented methods) that raised `SyntaxError` on import; fixed in `0.2.1`.
 - ⚠️ **real but conditional** — `activeledger-agent` is a **real, published PyPI
   package** and its intended API is the `ActiveLedgerAgent` class above. It only
   does anything useful with a **PLATO server** reachable at
   `http://localhost:8847` (it `import`s `fleet_agent` and `requests`).
-- ❌ **broken in current release** — the published `0.2.0` wheel has a
-  malformed `__init__.py` (a module-level `def __init__` plus mis-indented
-  methods), so `import activeledger_agent` raises `SyntaxError` before any code
-  runs. `pip install` succeeds; `import` does not. Details in
-  [docs/product-status.md](docs/product-status.md).
 - 🔮 **later phase / not done** — no tests, no CI, no `package.json` in this
   repo; the page does not apply the per-site accent swap or the provenance
   panel.
 
-### What changed on the landing page in this branch
+### What changed on the landing page
 
 The landing page's quick-start previously showed an API that **does not exist**
 in the package:
@@ -167,6 +162,11 @@ There is no `write_tile` and no `query_ledger` in `activeledger_agent`. The page
 now shows the real `ActiveLedgerAgent` API instead. The surrounding narrative
 ("writes every transaction as a PLATO tile") remains accurate — the real
 `_write` does post a tile to PLATO.
+
+The page's honesty note previously read "*you can install today … the code and
+the tile format are real*," which omits that the published 0.2.0 wheel raises
+`SyntaxError` on import (see ❌ above). The page now states the import failure
+explicitly.
 
 ---
 
