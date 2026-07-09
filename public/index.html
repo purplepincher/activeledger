@@ -315,7 +315,7 @@ agent.ask("recent investments")</code></pre>
 
 <!-- COPY: HONESTY_NOTE -->
 <section id="honesty">
-  <p class="honesty-note"><em>Honesty note: <code>activeledger-agent</code> is a real, published PyPI package (0.2.0, owner <code>superinstance</code>). The current release does not import — a mis-indented <code>__init__.py</code> raises <code>SyntaxError</code> before any code runs, so <code>pip install</code> succeeds but <code>import activeledger_agent</code> fails. The <code>ActiveLedgerAgent</code> API shown above is what the wheel's source defines; until the parse bug is fixed, the package cannot be used as shipped. Even with the parse bug fixed, each <code>log_*</code> call POSTs to a PLATO server expected at <code>http://localhost:8847/room/activeledger-ai</code>, so it does no useful work without that server running.</em></p>
+  <p class="honesty-note"><em>Honesty note: <code>activeledger-agent</code> is a real, published PyPI package (0.2.1, owner <code>superinstance</code>). A prior release (0.2.0) shipped with a mis-indented <code>__init__.py</code> that raised <code>SyntaxError</code> on import; fixed in 0.2.1, which installs and imports cleanly today. The <code>ActiveLedgerAgent</code> API shown above matches the current wheel. Each <code>log_*</code> call POSTs to a PLATO server expected at <code>http://localhost:8847/room/activeledger-ai</code>, so it does no useful work without that server running.</em></p>
 </section>
 
 </body>

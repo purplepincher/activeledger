@@ -1,10 +1,14 @@
 # Product status: activeledger-agent on PyPI
 
+> **Update:** the `0.2.0` parse bug documented below is fixed as of `0.2.1`,
+> the current release — `pip install activeledger-agent` installs a working
+> package today. This document is kept as the audit record of the original
+> finding; see the main [README.md](../README.md#honesty--status) for
+> current status.
+
 This document records what the installable `activeledger-agent` package
-**actually** is, verified directly from its published wheel, including a
-parse bug that prevents the current release from importing. It exists so
-reviewers and readers don't have to re-derive it, and to justify the landing
-page's corrected quick-start.
+**was** at the time of this audit, verified directly from its published
+wheel, including a parse bug that prevented that release from importing.
 
 ## TL;DR
 
